@@ -23,11 +23,11 @@
       function GetLatestReleaseInfo() {
         $.getJSON("https://api.github.com/repos/PokeD/PokeD.Server.Desktop/releases/latest").done(function (json) {
           $("#server-download-zip").attr("href", json.zipball_url);
-          $("#server-download-zip").attr("href", json.tarball_url);  		  
+          $("#server-download-tar-gz").attr("href", json.tarball_url);  		  
         });
         //$.getJSON("https://api.github.com/repos/PokeD/PokeD.Client.Desktop/releases/latest").done(function (json) {
         //  $("#client-download-zip").attr("href", json.zipball_url);
-        //  $("#client-download-zip").attr("href", json.tarball_url);  		  
+        //  $("#client-download-tar-gz").attr("href", json.tarball_url);  		  
         //});
       }  
     </script>
