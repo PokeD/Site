@@ -156,12 +156,19 @@ a.button span {
 	content:url(../images/poked-logo.png);
 }
 
-#download-zip span {
+#server-download-zip span {
   background: transparent url(../images/zip-icon.png) 12px 50% no-repeat;
 }
-#download-tar-gz span {
+#server-download-tar-gz span {
   background: transparent url(../images/tar-gz-icon.png) 12px 50% no-repeat;
 }
+#client-download-zip span {
+  background: transparent url(../images/zip-icon.png) 12px 50% no-repeat;
+}
+#client-download-tar-gz span {
+  background: transparent url(../images/tar-gz-icon.png) 12px 50% no-repeat;
+}
+
 #view-on-github span {
   background: transparent url(../images/octocat-icon.png) 12px 50% no-repeat;
 }
