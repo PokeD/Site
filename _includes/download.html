@@ -1,3 +1,17 @@
+<script>  
+	$(document).ready(function () {
+		GetLatestReleaseInfo();  
+	});  
+	function GetLatestReleaseInfo() {
+		$.getJSON("https://api.github.com/repos/PokeD/PokeD.Server.Desktop/releases/latest").done(function (json) {
+		$("#server-download-rar").attr("href", json.assets[0].browser_download_url);	 
+	}); 
+	//$.getJSON("https://api.github.com/repos/PokeD/PokeD.Client.Desktop/releases/latest").done(function (json) {
+		//  $("#client-download-rar").attr("href", json.assets[0].browser_download_url);	  
+	//});
+	}  
+</script>
+
 <h1>PokeD.Server.Desktop</h1>
 <section id="server-downloads-release" class="clearfix">
 	<h2>Release</h2>
