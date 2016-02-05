@@ -10,11 +10,27 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-	<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+    <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <title>PokeD Project by PokeD</title>
   </head>
 
   <body>
+    <script>  
+      $(document).ready(function () {
+        GetLatestReleaseInfo();  
+      });  
+      function GetLatestReleaseInfo() {
+        $.getJSON("https://api.github.com/repos/PokeD/PokeD.Server.Desktop/releases/latest").done(function (json) {
+          $("#server-download-zip").attr("href", json.zipball_url);
+          $("#server-download-zip").attr("href", json.tarball_url);  		  
+        });
+        //$.getJSON("https://api.github.com/repos/PokeD/PokeD.Client.Desktop/releases/latest").done(function (json) {
+        //  $("#client-download-zip").attr("href", json.zipball_url);
+        //  $("#client-download-zip").attr("href", json.tarball_url);  		  
+        //});
+      }  
+    </script>
     <script>((window.gitter = {}).chat = {}).options = { room: 'PokeD/Public' };</script>
   
     <div id="container">
@@ -29,16 +45,16 @@
 
         <section id="server-downloads" class="clearfix">
           <h1>PokeD.Server.Desktop</h1>
-          <a href="https://github.com/PokeD/PokeD.Server.Desktop/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/PokeD/PokeD.Server.Desktope/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a id="server-download-zip" class="button"><span>Download .zip</span></a>
+          <a id="server-download-tar-gz" class="button"><span>Download .tar.gz</span></a>
           <a href="https://github.com/PokeD/PokeD.Server.Desktop" id="view-on-github" class="button"><span>View on GitHub</span></a>
         </section>
         
         <!--
         <section id="client-downloads" class="clearfix">
           <h1>PokeD.Client.Desktop</h1>
-          <a href="https://github.com/PokeD/PokeD.Client.Desktop/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/PokeD/PokeD.Client.Desktop/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a id="client-download-zip" class="button"><span>Download .zip</span></a>
+          <a id="client-download-tar-gz" class="button"><span>Download .tar.gz</span></a>
           <a href="https://github.com/PokeD/PokeD.Client.Desktop" id="view-on-github" class="button"><span>View on GitHub</span></a>
         </section>
         -->
