@@ -159,9 +159,6 @@ a.button span {
 .gitter-open-chat-button:hover {
   background-color: #EF000F;
 }
-.gitter-chat-embed {
-  z-index: 2000;
-}
 
 .pokedlogo{
   content:url(../images/poked-logo.png);
