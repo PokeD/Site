@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html>
+---
+layout: default
+---
 
-<head>
-  {%  include head.html %}
-</head>
-
-<body>
-  <div id="container">
-    <div class="inner">
-      <header>
-        <h1><a href="{{ site.url }}/">{{ site.name }}</a> <img class="pokedlogo" align="right"/></h1>
-        <h2>Open Source and Cross Platform Pokémon Related Projects</h2>
-      </header>
-
-      <section id="main_content">
-        {{ content }}
-      </section>
-      <footer>
-        {%  include footer.html %}
-      </footer>
-    </div>
-  </div>
-</body>
-
-</html>
+{{ content }}
