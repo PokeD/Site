@@ -3,4 +3,36 @@ layout: page
 title: Report Error
 ---
 
-Error Reported Here
+<script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
+<script>  
+	$(document).ready(function () {	
+		SetFB();
+	});  
+	function SetFB() {
+		var firebaseRef = new Firebase("https://poked.firebaseio.com/");
+
+		function SendToFB(evt) {
+			var description = $('#content-description').text();
+			var errorcode = $('#content-errorcode').text();
+			var date = Date();
+
+			var postRef = firebaseRef.push();
+			postRef.set({Description: description, ErrorCode: errorcode, Date: date});
+
+			evt.preventDefault();
+		}
+
+		var submit = document.getElementsByTagName('buttonFB')[0];
+
+		submit.onclick = SendToFB;
+	}  
+</script>
+
+<h1>Error Reporting</h1>
+
+<div class="content-description">
+    <textarea rows="5" cols="75" placeholder="Description of what happened"></textarea>
+</div>
+<div class="content-errorcode">
+    <textarea rows="20" cols="75" placeholder="Content of error file"></textarea>
+</div>
