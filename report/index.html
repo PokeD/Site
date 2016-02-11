@@ -17,6 +17,7 @@ title: Report Error
 <br><br>
 
 <h2>As File</h2>
+<textarea id="content-description-file" rows="5" cols="75" placeholder="Description of what happened"></textarea>
 <input id="uploadFB" type="file">
 
 <script>
@@ -33,8 +34,9 @@ document.getElementById('uploadFB').onchange = function() {
 	var fileReader = new FileReader();
 	
 	fileReader.onload = function(e) {
+		var description = document.getElementById("content-description-file").value
 		var errorcode = e.target.result;
-		SendToFB('AsFile', errorcode);
+		SendToFB(description, errorcode);
 	};
 	
 	var doc = document.getElementById("uploadFB");
