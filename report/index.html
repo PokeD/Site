@@ -20,5 +20,6 @@ document.getElementById('buttonFB').onclick = function() {
 
 	var postRef = firebaseRef.push();
 	postRef.set({Description: description, ErrorCode: errorcode, Date: date});
+	alert('Thanks for reporting!');
 }
 </script>
