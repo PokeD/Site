@@ -40,8 +40,10 @@ title: Report Error
 <input id="buttonFB" type="button" value="Send Report"/>
 <script>
 document.getElementById('buttonFB').onclick = function() {
-	var description = $('#content-description').val();
-	var errorcode = $('#content-errorcode').val();
+	var firebaseRef = new Firebase("https://poked.firebaseio.com/");
+	
+	var description = $('#content-description').text();
+	var errorcode = $('#content-errorcode').text();
 	var date = Date();
 
 	var postRef = firebaseRef.push();
