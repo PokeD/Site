@@ -11,15 +11,13 @@ title: Report Error
 	function SetFB() {
 		var firebaseRef = new Firebase("https://poked.firebaseio.com/");
 
-		function SendToFB(evt) {
+		function SendToFB() {
 			var description = $('#content-description').val();
 			var errorcode = $('#content-errorcode').val();
 			var date = Date();
 
 			var postRef = firebaseRef.push();
 			postRef.set({Description: description, ErrorCode: errorcode, Date: date});
-
-			evt.preventDefault();
 		}
 
 		var submit = document.getElementsByTagName('buttonFB');
