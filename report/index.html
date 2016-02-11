@@ -12,18 +12,13 @@ title: Report Error
 <input id="uploadFB" type="file">
 <input id="buttonFB" type="button" value="Send Report"/>
 <script>
+var firebaseRef = new Firebase("https://poked.firebaseio.com/");
+
 document.getElementById('buttonFB').onclick = function() {
-	var firebaseRef = new Firebase("https://poked.firebaseio.com/");
-	
 	var description = document.getElementById("content-description").value
 	var errorcode = document.getElementById("content-errorcode").value;
 	
 	SendToFB(description, errorcode);
-	//var date = Date();
-	//
-	//var postRef = firebaseRef.push();
-	//postRef.set({Description: description, ErrorCode: errorcode, Date: date});
-	//alert('Thanks for reporting!');
 }
 
 document.getElementById('uploadFB').onchange = function() {
@@ -31,15 +26,13 @@ document.getElementById('uploadFB').onchange = function() {
 	
 	fileReader.onload = function(e) {
 		var errorcode = e.target.result;
-		SendToFB('', errorcode);
+		SendToFB('AsFile', errorcode);
 	};
 	
 	var doc = document.getElementById("uploadFB");
 	fileReader.readAsText(doc.files[0]);
 }
 function SendToFB(description, errorcode) {
-	var firebaseRef = new Firebase("https://poked.firebaseio.com/");
-	
 	var date = Date();
 
 	var postRef = firebaseRef.push();
