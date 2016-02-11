@@ -4,6 +4,7 @@ title: Report Error
 ---
 
 <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
+<!--
 <script>  
 	$(document).ready(function () {	
 		SetFB();
@@ -26,6 +27,7 @@ title: Report Error
 		submit.onclick = SendToFB;
 	}  
 </script>
+-->
 
 <h1>Error Reporting</h1>
 
@@ -36,3 +38,13 @@ title: Report Error
     <textarea rows="20" cols="75" placeholder="Content of error file"></textarea>
 </div>
 <input id="buttonFB" type="button" value="Send Report"/>
+<script>
+document.getElementById('buttonFB').onclick = function() {
+	var description = $('#content-description').val();
+	var errorcode = $('#content-errorcode').val();
+	var date = Date();
+
+	var postRef = firebaseRef.push();
+	postRef.set({Description: description, ErrorCode: errorcode, Date: date});
+}
+</script>
