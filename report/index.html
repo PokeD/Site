@@ -14,8 +14,8 @@ title: Report Error
 document.getElementById('buttonFB').onclick = function() {
 	var firebaseRef = new Firebase("https://poked.firebaseio.com/");
 	
-	var description = document.getElementById("content-description").val();
-	var errorcode = document.getElementById("content-errorcode").val();
+	var description = document.getElementById("content-description").value
+	var errorcode = document.getElementById("content-errorcode").value;
 	var date = Date();
 
 	var postRef = firebaseRef.push();
