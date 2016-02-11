@@ -9,6 +9,7 @@ title: Report Error
 
 <textarea id="content-description" rows="5" cols="75" placeholder="Description of what happened"></textarea>
 <textarea id="content-errorcode" rows="20" cols="75" placeholder="Content of error file"></textarea>
+<input id="uploadFB" type="file">
 <input id="buttonFB" type="button" value="Send Report"/>
 <script>
 document.getElementById('buttonFB').onclick = function() {
@@ -16,6 +17,26 @@ document.getElementById('buttonFB').onclick = function() {
 	
 	var description = document.getElementById("content-description").value
 	var errorcode = document.getElementById("content-errorcode").value;
+	
+	SendToFB(description, errorcode);
+	//var date = Date();
+	//
+	//var postRef = firebaseRef.push();
+	//postRef.set({Description: description, ErrorCode: errorcode, Date: date});
+	//alert('Thanks for reporting!');
+}
+
+document.getElementById('uploadFB').onchange = function() {
+	var fileReader = new FileReader();
+	
+	var doc = document.getElementById("uploadFB");
+	var errorcode = fileReader.readAsText(doc.files[0]);
+	
+	SendToFB('', errorcode);
+}
+function SendToFB(description, errorcode) {
+	var firebaseRef = new Firebase("https://poked.firebaseio.com/");
+	
 	var date = Date();
 
 	var postRef = firebaseRef.push();
