@@ -29,10 +29,13 @@ document.getElementById('buttonFB').onclick = function() {
 document.getElementById('uploadFB').onchange = function() {
 	var fileReader = new FileReader();
 	
-	var doc = document.getElementById("uploadFB");
-	var errorcode = fileReader.readAsText(doc.files[0]);
+	fileReader.onload = function(e) {
+		var errorcode = e.target.result;
+		SendToFB('', errorcode);
+	};
 	
-	SendToFB('', errorcode);
+	var doc = document.getElementById("uploadFB");
+	fileReader.readAsText(doc.files[0]);
 }
 function SendToFB(description, errorcode) {
 	var firebaseRef = new Firebase("https://poked.firebaseio.com/");
