@@ -4,46 +4,18 @@ title: Report Error
 ---
 
 <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
-<!--
-<script>  
-	$(document).ready(function () {	
-		SetFB();
-	});  
-	function SetFB() {
-		var firebaseRef = new Firebase("https://poked.firebaseio.com/");
-
-		function SendToFB() {
-			var description = $('#content-description').val();
-			var errorcode = $('#content-errorcode').val();
-			var date = Date();
-
-			var postRef = firebaseRef.push();
-			postRef.set({Description: description, ErrorCode: errorcode, Date: date});
-		}
-
-		var submit = document.getElementsByTagName('buttonFB');
-		document.getElementsByTagName('buttonFB').onclick = SendToFB;
-		
-		submit.onclick = SendToFB;
-	}  
-</script>
--->
 
 <h1>Error Reporting</h1>
 
-<div class="content-description">
-    <textarea rows="5" cols="75" placeholder="Description of what happened"></textarea>
-</div>
-<div class="content-errorcode">
-    <textarea rows="20" cols="75" placeholder="Content of error file"></textarea>
-</div>
+<textarea id="content-description" rows="5" cols="75" placeholder="Description of what happened"></textarea>
+<textarea id="content-errorcode" rows="20" cols="75" placeholder="Content of error file"></textarea>
 <input id="buttonFB" type="button" value="Send Report"/>
 <script>
 document.getElementById('buttonFB').onclick = function() {
 	var firebaseRef = new Firebase("https://poked.firebaseio.com/");
 	
-	var description = $('#content-description').text();
-	var errorcode = $('#content-errorcode').text();
+	var description = document.getElementById("content-description").val();
+	var errorcode = document.getElementById("content-errorcode").val();
 	var date = Date();
 
 	var postRef = firebaseRef.push();
