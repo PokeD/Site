@@ -3,7 +3,7 @@
 		GetLatestReleaseInfo();  
 	});  
 	function GetLatestReleaseInfo() {
-		$.getJSON("https://api.github.com/repos/PokeD/PokeD.Server.Desktop/releases/latest").done(function (json) {
+		$.getJSON("https://api.github.com/repos/PokeD/PokeD.Server.NetCore/releases/latest").done(function (json) {
 			$("#server-download-rar").attr("href", json.assets[0].browser_download_url);
 		}); 
 		//$.getJSON("https://api.github.com/repos/PokeD/PokeD.Client.Desktop/releases/latest").done(function (json) {
@@ -15,9 +15,9 @@
 	}  
 </script>
 
-<h1>PokeD.Server.Desktop</h1>
+<h1>PokeD.Server.NetCore</h1>
 <section id="scon-description" class="clearfix">
-	<h6>Server. Supports Pokemon3D client, PokeD client, importing PK6, planned support for Pixelmon (Battle).</h6>
+	<h6>Server. Supports Pokemon3D client, PokeD client.</h6>
 </section>
 <section id="server-downloads-release" class="clearfix">
 	<h2>Release</h2>
@@ -25,9 +25,9 @@
 </section>
 <section id="server-downloads-source" class="clearfix">
 	<h2>Source</h2>
-	<a href="https://github.com/PokeD/PokeD.Server.Desktop/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-	<a href="https://github.com/PokeD/PokeD.Server.Desktop/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-	<a href="https://github.com/PokeD/PokeD.Server.Desktop" id="view-on-github" class="button"><span>View on GitHub</span></a>
+	<a href="https://github.com/PokeD/PokeD.Server.NetCore/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+	<a href="https://github.com/PokeD/PokeD.Server.NetCore/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+	<a href="https://github.com/PokeD/PokeD.Server.NetCore" id="view-on-github" class="button"><span>View on GitHub</span></a>
 </section>
 
 <hr>
